@@ -15,6 +15,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class ShopServiceTestSuite {
     @Autowired
     private ShopService shopService;
+    @Autowired
+    private OrderFacade orderFacade;
 
     @Test
     public void testShopFacade() {
@@ -23,7 +25,7 @@ public class ShopServiceTestSuite {
         order.addItem(new ItemDto(216L, 1));
         order.addItem(new ItemDto(25L, 1));
         order.addItem(new ItemDto(11L, 3));
-        OrderFacade orderFacade = new OrderFacade();
+//        OrderFacade orderFacade = new OrderFacade();
         try {
             orderFacade.processOrder(order, 1L);
         } catch (OrderProcessingException e) {
